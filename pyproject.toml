@@ -1,18 +1,21 @@
+[build-system]
+requires = ["hatchling>=1.27,<2.0"]
+build-backend = "hatchling.build"
+
 [project]
 name = "package-b"
-version = "0.1.0"
+version = "0.5.0"
 description = "The package B"
 readme = "README.md"
 authors = [
     { name = "pausz"}
 ]
 requires-python = ">=3.12"
-dependencies = ["package_a"]
 
-[build-system]
-requires = ["uv_build>=0.8.17,<0.9.0"]
-build-backend = "uv_build"
-
+[project.optional-dependencies]
+models = [
+    "package_a~=2.0",
+]
 
 [tool.uv.sources]
-package-a = {git = "ssh://git@github.com/pausz/package_a.git", branch = "main"}
+package-a = {git = "ssh://git@github.com/pausz/package_a.git", branch = "uv-test/version-1"}
