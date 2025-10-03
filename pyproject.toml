@@ -17,5 +17,10 @@ models = [
     "package_a~=2.0",
 ]
 
+# Adding a source that references to an older major version of package_a
 [tool.uv.sources]
 package-a = {git = "ssh://git@github.com/pausz/package_a.git", branch = "uv-test/version-1"}
+
+# Build configuration - hatchling
+[tool.hatch.version]
+path = "src/package_b/__init__.py"
